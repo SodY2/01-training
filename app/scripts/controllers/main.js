@@ -8,7 +8,7 @@
  * Controller of the rpTrainingApp
  */
 angular.module('rpTrainingApp')
-  .controller('MainCtrl', function ($scope, $http, charachteristikaValue) {
+  .controller('MainCtrl', function ($scope, $http, charachteristikaValue, Data) {
     $scope.charAttributes = charachteristikaValue;
     $scope.selectWording = "";
 
@@ -17,6 +17,10 @@ angular.module('rpTrainingApp')
       $scope.randomPair.push($scope.charAttributes[Math.floor(Math.random() * $scope.charAttributes.length)]);
       $scope.randomPair.push($scope.charAttributes[Math.floor(Math.random() * $scope.charAttributes.length)]);
     };
+
+    Data.get("products").then(function(resp){
+      console.info(resp)
+    })
     //
     //$http.get("views/char.html").then(function(reports){
     //    var allParagraphs = $("p", reports.data);
