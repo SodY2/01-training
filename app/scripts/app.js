@@ -21,14 +21,41 @@ var app = angular
   ]).config(["$routeProvider",
     function ($routeProvider) {
       $routeProvider
+        .when('/login', {
+        title: 'Login',
+        templateUrl: 'views/login.html',
+        controller: 'authCtrl'
+      })
+        .when('/logout', {
+          title: 'Logout',
+          templateUrl: 'views/login.html',
+          controller: 'logoutCtrl'
+        })
+        .when('/signup', {
+          title: 'Signup',
+          templateUrl: 'views/signup.html',
+          controller: 'authCtrl'
+        })
+        .when('/dashboard', {
+          title: 'Dashboard',
+          templateUrl: 'views/dashboard.html',
+          controller: 'authCtrl'
+        })
         .when('/', {
+          title: 'Login',
+          templateUrl: 'views/login.html',
+          controller: 'authCtrl',
+          role: '0'
+        })
+        .when('/charachter', {
           templateUrl: 'views/main.html',
           controller: 'MainCtrl',
           controllerAs: 'main'
         })
         .otherwise({
-          redirectTo: "/"
+          redirectTo: '/login'
         });
+
     }]);
 
 app.config(['$httpProvider', function($httpProvider) {

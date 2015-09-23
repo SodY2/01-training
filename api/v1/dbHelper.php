@@ -69,7 +69,7 @@ class dbHelper {
     }
     function insert($table, $columnsArray, $requiredColumnsArray) {
         $this->verifyRequiredParams($columnsArray, $requiredColumnsArray);
-        
+
         try{
             $a = array();
             $c = "";
@@ -95,7 +95,7 @@ class dbHelper {
         }
         return $response;
     }
-    function update($table, $columnsArray, $where, $requiredColumnsArray){ 
+    function update($table, $columnsArray, $where, $requiredColumnsArray){
         $this->verifyRequiredParams($columnsArray, $requiredColumnsArray);
         try{
             $a = array();
@@ -156,6 +156,16 @@ class dbHelper {
         }
         return $response;
     }
+
+     /**
+         * Fetching single record
+         */
+    public function getOneRecord($query) {
+        $stmt =  $this->db->prepare($query." LIMIT 1");
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     /*function selectP($name){
         // Select statement
         try{
@@ -169,14 +179,14 @@ class dbHelper {
             // $stmt = $this->db->prepare("CALL `simpleproc`(@a);SELECT @a AS `param1`;");
             // $stmt->execute($a);
             // return $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $stmt = $this->db->prepare("CALL $name(@resultId)"); 
-            $stmt->execute(); 
-            $stmt = $this->db->prepare("select @resultId as Id"); 
-            $stmt->execute(); 
+            $stmt = $this->db->prepare("CALL $name(@resultId)");
+            $stmt->execute();
+            $stmt = $this->db->prepare("select @resultId as Id");
+            $stmt->execute();
             $myResultId = $stmt->fetchColumn();
 
             print "procedure returned \n".$myResultId;
-            
+
         }catch(PDOException $e){
             print_r('Query Failed: ' .$e->getMessage());
             return $rows=null;
@@ -201,6 +211,45 @@ class dbHelper {
             echoResponse(200, $response);
             exit;
         }
+    }
+
+    public function getSession(){
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $sess = array();
+        if(isset($_SESSION['uid']))
+        {
+            $sess["uid"] = $_SESSION['uid'];
+            $sess["name"] = $_SESSION['name'];
+            $sess["email"] = $_SESSION['email'];
+        }
+        else
+        {
+            $sess["uid"] = '';
+            $sess["name"] = 'Guest';
+            $sess["email"] = '';
+        }
+        return $sess;
+    }
+    public function destroySession(){
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        if(isSet($_SESSION['uid'])){
+            unset($_SESSION['uid']);
+            unset($_SESSION['name']);
+            unset($_SESSION['email']);
+            $info='info';
+            if(isSet($_COOKIE[$info])){
+                setcookie ($info, '', time() - $cookie_time);
+            }
+            $msg="Logged Out Successfully...";
+        }
+        else{
+            $msg = "Not logged in...";
+        }
+        return $msg;
     }
 }
 

@@ -21,6 +21,10 @@ angular.module('rpTrainingApp')
     Data.get("products").then(function(resp){
       console.info(resp)
     })
+
+      Data.get("login2").then(function(resp){
+        console.info(resp)
+      })
     //
     //$http.get("views/char.html").then(function(reports){
     //    var allParagraphs = $("p", reports.data);

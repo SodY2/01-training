@@ -1,5 +1,5 @@
 app.factory("Data", ['$http', '$location',
-  function ($http, $q, $location) {
+  function ($http, $q, $location, toaster) {
 
     var serviceBase = 'http://beta.01.edgehammer.de/api/v1/';
 
