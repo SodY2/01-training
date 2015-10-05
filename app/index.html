@@ -39,7 +39,7 @@
 
 
 <div class="container content">
-  <div ng-view=""></div>
+  <div ui-view></div>
 </div>
 
 <div class="footer navbar-fixed-bottom">
@@ -62,13 +62,21 @@
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_components/angularjs-toaster/toaster.js"></script>
+<script src="bower_components/autofill-event/src/autofill-event.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/dashboard.js"></script>
+<script src="scripts/controllers/login.js"></script>
+<script src="scripts/services/auth.js"></script>
 <script src="scripts/services/charachteristikavalue.js"></script>
+<script src="scripts/services/api.js"></script>
+<script src="scripts/services/djangoAuth.js"></script>
+<script src="scripts/services/validate.js"></script>
 <script src="scripts/data.js"></script>
 <script src="scripts/authCtrl.js"></script>
 <!-- endbuild -->

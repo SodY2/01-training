@@ -8,31 +8,18 @@
  * Controller of the rpTrainingApp
  */
 angular.module('rpTrainingApp')
-  .controller('MainCtrl', function ($scope, $http, charachteristikaValue, Data) {
+  .controller('MainCtrl', function ($scope, $http, charachteristikaValue, Data, auth, djangoAuth) {
     $scope.charAttributes = charachteristikaValue;
     $scope.selectWording = "";
 
-    $scope.generateRandomPair = function(){
+    $scope.generateRandomPair = function () {
       $scope.randomPair = [];
       $scope.randomPair.push($scope.charAttributes[Math.floor(Math.random() * $scope.charAttributes.length)]);
       $scope.randomPair.push($scope.charAttributes[Math.floor(Math.random() * $scope.charAttributes.length)]);
     };
 
-    Data.get("products").then(function(resp){
-      console.info(resp)
-    })
+    //Data.get("accounts/").then(function (resp) {
+    //  console.info(resp)
+    //})
 
-      Data.get("login2").then(function(resp){
-        console.info(resp)
-      })
-    //
-    //$http.get("views/char.html").then(function(reports){
-    //    var allParagraphs = $("p", reports.data);
-    //    angular.forEach(allParagraphs, function(p){
-    //      $scope.charAttributes.push({
-    //        "name" : $(p).text(),
-    //        "description": $(p).attr("title")
-    //      });
-    //    });
-    //});
   });

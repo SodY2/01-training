@@ -1,7 +1,7 @@
 app.factory("Data", ['$http', '$location',
   function ($http, $q, $location, toaster) {
 
-    var serviceBase = 'http://beta.01.edgehammer.de/api/v1/';
+    var serviceBase = 'https://mighty-shore-7827.herokuapp.com/v1/api/';
 
     var obj = {};
 
