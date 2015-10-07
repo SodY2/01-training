@@ -9,7 +9,7 @@
  */
 app.controller('dashboardController', function ($scope, $http, charachteristikaValue, Data, auth) {
 
-  $scope.user = auth.user;
+  $scope.user = auth.getProfile();
   $scope.logout = function(){
     auth.logout();
   };

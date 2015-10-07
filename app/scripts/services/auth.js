@@ -45,7 +45,7 @@ app.service('auth', function (api, $state, Data, $cookies, $http, $q) {
       }
 
       this.setHeaders();
-      Data.get("auth/user/").catch(function(){
+      Data.get("auth/user/").catch(function () {
         deferred.resolve()
       }).then(function (response) {
         if (response) {
@@ -67,7 +67,11 @@ app.service('auth', function (api, $state, Data, $cookies, $http, $q) {
       Data.post("auth/registration/", passedUser).then(this.login(this.getCredentials(passedUser))).catch(function (data) {
         console.info(data);
       });
+    },
+    getProfile: function () {
+     return user;
     }
+
   }
 });
 
