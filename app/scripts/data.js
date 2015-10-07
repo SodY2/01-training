@@ -1,5 +1,5 @@
 app.factory("Data", ['$http', '$location',
-  function ($http, $q, $location, toaster) {
+  function ($http, $q, $location, toaster, $cookies) {
 
     var serviceBase = 'https://mighty-shore-7827.herokuapp.com/v1/api/';
 

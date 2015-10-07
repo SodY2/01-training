@@ -25,7 +25,7 @@
                 <div class="col-sm-7">
                            <span class="block input-icon input-icon-right">
                                 <input type="text" class="form-control" placeholder="Ingame Name" name="ig_name"
-                                       ng-model="user.last_name" required focus/>
+                                       ng-model="user.username" required focus/>
                                 <i class="ace-icon fa fa-user"></i>
                             </span>
                 </div>
@@ -48,7 +48,7 @@
                 <div class="col-sm-7">
                                     <span class="block input-icon input-icon-right">
                                 <input type="password" class="form-control" name="password" placeholder="Password"
-                                       ng-model="user.password" required/>
+                                       ng-model="user.password1" minlength="6" required/>
                                 <small class="errorMessage"
                                        data-ng-show="signupForm.password.$dirty && signupForm.password.$invalid"> Enter
                                   Password.
@@ -63,7 +63,7 @@
                                     <span class="block input-icon input-icon-right">
                                 <input type="password" class="form-control" name="password2"
                                        placeholder="Password Again" ng-model="user.password2"
-                                       password-match="user.password" required/>
+                                       password-match="user.password" minlength="6" required/>
                                 <small class="errorMessage"
                                        data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.required">
                                   Enter password again.
@@ -90,7 +90,7 @@
                 <span class="lbl col-sm-5"> </span>
 
                 <div class="col-sm-7">
-                  <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="register($event)"
+                  <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="register(user)"
                           data-ng-disabled="signupForm.$invalid">
                     Sign Up
                   </button>

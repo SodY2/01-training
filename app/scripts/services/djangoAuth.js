@@ -1,7 +1,7 @@
 'use strict';
 app.service('djangoAuth', function djangoAuth($q, $http, $cookies, $rootScope) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-    var serviceBase = 'https://mighty-shore-7827.herokuapp.com/v1/';
+    var serviceBase = 'https://mighty-shore-7827.herokuapp.com/v1';
     var service = {
         /* START CUSTOMIZATION HERE */
         // Change this to point to your Django REST Auth API
@@ -15,6 +15,7 @@ app.service('djangoAuth', function djangoAuth($q, $http, $cookies, $rootScope) {
         'authPromise': null,
         'request': function(args) {
             // Let's retrieve the token from the cookie, if available
+          console.info($cookies.token)
             if($cookies.token){
                 $http.defaults.headers.common.Authorization = 'Token ' + $cookies.token;
             }
@@ -26,19 +27,27 @@ app.service('djangoAuth', function djangoAuth($q, $http, $cookies, $rootScope) {
                 method = args.method || "GET",
                 params = params,
                 data = args.data || {};
+
+          console.info(url)
+          console.info(this.use_session)
+          console.info(method.toUpperCase())
+          console.info(params)
+          console.info(data)
             // Fire the request, as configured.
             $http({
                 url: url,
                 withCredentials: this.use_session,
                 method: method.toUpperCase(),
-                headers: {'X-CSRFToken': $cookies['csrftoken']},
+                //headers: {'X-CSRFToken': $cookies['csrftoken']},
                 params: params,
                 data: data
             })
             .success(angular.bind(this,function(data, status, headers, config) {
+                console.info("succes")
                 deferred.resolve(data, status);
             }))
             .error(angular.bind(this,function(data, status, headers, config) {
+                console.info("error")
                 console.log("error syncing with: " + url);
                 // Set request status
                 if(data){
@@ -77,16 +86,17 @@ app.service('djangoAuth', function djangoAuth($q, $http, $cookies, $rootScope) {
                 'data' :data
             });
         },
-        'login': function(username,password){
+        'login': function(user){
             var djangoAuth = this;
             return this.request({
                 'method': "POST",
                 'url': "/login/",
                 'data':{
-                    'username':username,
-                    'password':password
+                    'username':user.username,
+                    'password':user.password
                 }
             }).then(function(data){
+              console.info("then login")
                 if(!djangoAuth.use_session){
                     $http.defaults.headers.common.Authorization = 'Token ' + data.key;
                     $cookies.token = data.key;

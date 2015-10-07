@@ -10,4 +10,7 @@
 app.controller('dashboardController', function ($scope, $http, charachteristikaValue, Data, auth) {
 
   $scope.user = auth.user;
+  $scope.logout = function(){
+    auth.logout();
+  };
 });

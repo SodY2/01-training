@@ -21,10 +21,33 @@ var app = angular
     'ui.router'
   ]);
 
-app.run(function ($rootScope, $state, $stateParams, auth, $cookies, $http){
-  //if($cookies.token){
-  //  $http.defaults.headers.common.Authorization = 'Token ' + $cookies.token;
-  //}
+app.run(function ($rootScope, $state, $stateParams, auth) {
+
+  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+
+    var isAuthenticated = auth.isAuthenticated();
+    var isPublicAction = angular.isObject(toState.data)
+      && toState.data.isPublic === true;
+
+    if (isPublicAction || isAuthenticated) {
+      return;
+    }
+    event.preventDefault();
+    auth.getAuthObject().then(function (user) {
+
+        var isAuthenticated = user;
+
+      console.info(isAuthenticated)
+        if (isAuthenticated) {
+          // let's continue, use is allowed
+          $state.go(toState, toParams)
+          return;
+        }
+        // log on / sign in...
+        $state.go("login");
+      })
+
+  });
 });
 
 
@@ -35,17 +58,20 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('login', {
       url: "/login",
       templateUrl: 'views/login.html',
-      controller: 'loginController'
+      controller: 'loginController',
+      data: { isPublic: true }
     })
     .state('logout', {
       url: "/logout",
       templateUrl: 'views/login.html',
-      controller: 'loginController'
+      controller: 'loginController',
+      data: { isPublic: true }
     })
     .state('signup', {
       url: '/signup',
       templateUrl: 'views/signup.html',
-      controller: 'loginController'
+      controller: 'loginController',
+      data: { isPublic: true }
     })
     .state('dashboard', {
       url: '/dashboard',
@@ -55,7 +81,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('/', {
       url: '/login',
       templateUrl: 'views/login.html',
-      controller: 'loginController'
+      controller: 'loginController',
+      data: { isPublic: true }
     })
     .state('charachter', {
       url: "/character",

@@ -25,11 +25,11 @@
             <form name="loginForm" class="form-horizontal" role="form">
 
               <div class="form-group">
-                <label class="col-sm-3 control-label no-padding-right" for="email"> Email</label>
+                <label class="col-sm-3 control-label no-padding-right" for="email"> Username</label>
 
                 <div class="col-sm-7">
                            <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Email" name="email"
+                                <input type="text" class="form-control" placeholder="Username" name="email"
                                        ng-model="user.username" required/>
                                 <i class="ace-icon fa fa-user"></i>
                             </span>
@@ -65,6 +65,8 @@
               <span class="lbl col-sm-3"> </span>
 
               <div class="col-sm-7">Don't have an account? <a href="#/signup">Signup</a></div>
+              <div class="col-sm-7"><a href="" ng-click="logout()">Logout</a></div>
+
             </form>
 
 

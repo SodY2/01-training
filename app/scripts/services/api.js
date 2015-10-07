@@ -2,8 +2,10 @@ app.factory('api', function ($resource) {
     function add_auth_header(data, headersGetter) {
       // as per HTTP authentication spec [1], credentials must be
       // encoded in base64. Lets use window.btoa [2]
-      var headers = headersGetter();
-      console.info(data)
+
+      if($cookies.token){
+        $http.defaults.headers.common.Authorization = 'Token ' + $cookies.token;
+      }
       headers['Authorization'] = ('Basic ' + btoa(data.username +
         ':' + data.password));
     }

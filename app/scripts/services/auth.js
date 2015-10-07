@@ -1,49 +1,73 @@
 'use strict';
-app.service('auth', function (api, $state, Data, $cookies, $http) {
+app.service('auth', function (api, $state, Data, $cookies, $http, $q) {
 
-  var self = this;
-  //Data.get("auth/").then(function(result){
-  //  console.info(result)
-  //});
+  var user = undefined;
 
-  self.getCredentials = function (user) {
-    return {
-      username: user.username || $scope.user.email,
-      password: user.password,
-      email: user.email,
-      first_name: user.first_name || "",
-      last_name: user.last_name || ""
-    };
-  };
-
-  self.login = function (user) {
-    Data.post("auth/login/", user).then(function(response){
-      if(response.key){
-        $http.defaults.headers.common.Authorization = 'Token ' + response.key;
-        $cookies.token = response.key;
-        $state.go('dashboard');
+  return {
+    getCredentials: function (user) {
+      console.info(user)
+      return {
+        username: user.username,
+        password: user.password1,
+        email: user.email,
+        first_name: user.first_name || "",
+        last_name: user.last_name || ""
+      };
+    },
+    setHeaders: function () {
+      if ($cookies.token) {
+        $http.defaults.headers.common.Authorization = 'Token ' + $cookies.token;
       }
-    });
-  };
+    },
+    login: function (user) {
+      console.info(user)
+      Data.post("auth/login/", user).then(function (response) {
+        if (response.key) {
+          $cookies.token = response.key;
+          $state.go('dashboard');
+        }
+      });
+    },
 
-  self.logout = function () {
-    Data.post("auth/login/", user).then(function(response){
-      if(response.key){
+    logout: function () {
+      this.setHeaders();
+      Data.post("auth/logout/").then(function (response) {
+        delete $cookies.token;
+        user = undefined;
         $state.go('login');
+      });
+    },
+
+    getAuthObject: function () {
+      var deferred = $q.defer();
+      if (user) {
+        return $q.when(user);
       }
-    });
-  };
 
-  self.isLoggedIn = function(){
-    return self.user ? true:false;
-  };
+      this.setHeaders();
+      Data.get("auth/user/").catch(function(){
+        deferred.resolve()
+      }).then(function (response) {
+        if (response) {
+          user = response;
+          deferred.resolve(user)
+        }
+      });
+      return deferred.promise;
+    },
 
-  this.register = function ($event) {
-    // prevent login form from firing
-    $event.preventDefault();
-    // create user and immediatly login on success
-    api.users.create(self.getCredentials()).$promise.then(self.login()).catch(function (data) {
-      alert(data.data.username);
-    });
-  };
+    isAuthenticated: function () {
+      return user !== undefined
+        && user;
+    },
+
+    register: function (passedUser) {
+      // prevent login form from firing
+      // create user and immediatly login on success
+      Data.post("auth/registration/", passedUser).then(this.login(this.getCredentials(passedUser))).catch(function (data) {
+        console.info(data);
+      });
+    }
+  }
 });
+
