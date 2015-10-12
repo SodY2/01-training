@@ -25,28 +25,25 @@ app.run(function ($rootScope, $state, $stateParams, auth) {
 
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
 
-    var isAuthenticated = auth.isAuthenticated();
-    var isPublicAction = angular.isObject(toState.data)
-      && toState.data.isPublic === true;
+    if (!toState.isPublic) {
 
-    if (isPublicAction || isAuthenticated) {
-      return;
-    }
-    event.preventDefault();
-    auth.getAuthObject().then(function (user) {
+      auth.getAuthObject().then(function (user) {
+        var isAuthenticated = auth.isAuthenticated();
 
-        var isAuthenticated = user;
-
-      console.info(isAuthenticated)
         if (isAuthenticated) {
+          event.preventDefault();
           // let's continue, use is allowed
           $state.go(toState, toParams)
           return;
         }
-        // log on / sign in...
-        $state.go("login");
+        else {
+          // log on / sign in...
+          event.preventDefault();
+          $state.go("login");
+        }
       })
 
+    }
   });
 });
 
@@ -59,19 +56,19 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: "/login",
       templateUrl: 'views/login.html',
       controller: 'loginController',
-      data: { isPublic: true }
+      isPublic: true
     })
     .state('logout', {
       url: "/logout",
       templateUrl: 'views/login.html',
       controller: 'loginController',
-      data: { isPublic: true }
+      isPublic: true
     })
     .state('signup', {
       url: '/signup',
       templateUrl: 'views/signup.html',
       controller: 'loginController',
-      data: { isPublic: true }
+      isPublic: true
     })
     .state('dashboard', {
       url: '/dashboard',
@@ -82,13 +79,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/login',
       templateUrl: 'views/login.html',
       controller: 'loginController',
-      data: { isPublic: true }
     })
     .state('charachter', {
       url: "/character",
-      templateUrl: 'views/main.html',
-      controller: 'MainCtrl',
-      controllerAs: 'main'
+      templateUrl: 'views/character.html',
+      controller: 'CharacterController'
     });
 
 });

@@ -48,6 +48,7 @@ app.service('auth', function ($state, Data, $cookies, $http, $q) {
       }).then(function (response) {
         if (response) {
           user = response;
+          console.info(user)
           deferred.resolve(user)
         }
       });

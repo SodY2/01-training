@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the rpTrainingApp
  */
-app.controller('MainCtrl', function ($scope, $http, charachteristikaValue, Data, auth) {
+app.controller('CharacterController', function ($scope, $http, charachteristikaValue) {
     $scope.charAttributes = charachteristikaValue;
     $scope.selectWording = "";
 
