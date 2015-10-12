@@ -7,9 +7,10 @@
  * # MainCtrl
  * Controller of the rpTrainingApp
  */
-app.controller('CharacterController', function ($scope, $http, charachteristikaValue) {
+app.controller('CharacterController', function ($scope, $http, charachteristikaValue, auth) {
     $scope.charAttributes = charachteristikaValue;
     $scope.selectWording = "";
+  console.info("FGHJ", auth.getProfile())
 
     $scope.generateRandomPair = function () {
       $scope.randomPair = [];

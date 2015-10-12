@@ -1,0 +1,43 @@
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  background-color: #161a22;
+}
+.footer a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #b41336;
+}
+
+body {
+  background-image: url("../images/MainBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  border: 0;
+}
+.header .navbar {
+  background-color: #161a22;
+  min-height: 75px;
+  border: 0;
+}
+.header .navbar.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 43px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+.header .navbar.navbar-default .navbar-nav > li > a:hover,
+.header .navbar.navbar-default .navbar-nav > li > a:active {
+  color: #b41336;
+}
+.header .navbar .navbar-brand .brand-add,
+.header .navbar .navbar-brand .brand-add:hover {
+  margin-left: 10px;
+  padding-left: 10px;
+  color: #b41336;
+  border-left: 3px solid #b41336;
+}

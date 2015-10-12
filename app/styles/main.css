@@ -1,12 +1,17 @@
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
-  color: #000;
+  color: #fff;
   padding: 0.2em 0;
 }
 
 body {
   padding: 0;
+  color: #fff;
+}
+
+p,a,h1,h2,h3,h4,h5{
+  color: #fff;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -24,11 +29,6 @@ body {
 
 .footer a {
   color: white;
-  text-decoration: none;
-}
-
-.footer a:hover{
-  color: red;
   text-decoration: none;
 }
 
@@ -53,12 +53,6 @@ body {
   padding-bottom: 19px;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
 
 .container-narrow > hr {
   margin: 30px 0;
@@ -111,11 +105,6 @@ body {
 
 p{
   margin-bottom: 0;
-}
-
-p:hover{
-  cursor: pointer;
-  color: red;
 }
 
 .headliner{

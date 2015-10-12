@@ -23,34 +23,28 @@ var app = angular
 
 app.run(function ($rootScope, $state, $stateParams, auth) {
 
-  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, $sessionStorage) {
 
-    if (!toState.isPublic) {
-
+    if(!auth.isAuthenticated || !toState.isPublic)
       auth.getAuthObject().then(function (user) {
-        var isAuthenticated = auth.isAuthenticated();
-
-        if (isAuthenticated) {
-          event.preventDefault();
-          // let's continue, use is allowed
-          $state.go(toState, toParams)
+        if (auth.isAuthenticated()) {
           return;
         }
-        else {
-          // log on / sign in...
-          event.preventDefault();
-          $state.go("login");
-        }
-      })
+        $state.go("login");
 
-    }
+      });
+
   });
 });
 
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/login");
+  $urlRouterProvider.otherwise(function ($injector) {
+    var $state = $injector.get("$state");
+    $state.go("login");
+  });
+
   $stateProvider
     .state('login', {
       url: "/login",
@@ -78,7 +72,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('/', {
       url: '/login',
       templateUrl: 'views/login.html',
-      controller: 'loginController',
+      controller: 'loginController'
     })
     .state('charachter', {
       url: "/character",
@@ -87,15 +81,4 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     });
 
 });
-
-app.config(['$httpProvider', function ($httpProvider, $cookies) {
-  //$httpProvider.defaults.xsrfCookieName = 'csrftoken';
-  //$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
-  //$httpProvider.defaults.useXDomain = true;
-  //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  //$httpProvider.defaults.withCredentials = true;
-  //$httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = "https://mighty-shore-7827.herokuapp.com";
-
-}]);
-
 

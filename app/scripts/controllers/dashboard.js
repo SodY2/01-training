@@ -10,6 +10,7 @@
 app.controller('dashboardController', function ($scope, $http, charachteristikaValue, Data, auth, groups) {
 
   $scope.user = auth.getProfile();
+  console.info($scope.user)
   $scope.groups = groups;
   $scope.logout = function(){
     auth.logout();

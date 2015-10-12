@@ -35,6 +35,7 @@ module.exports = function(config) {
       'bower_components/angularjs-toaster/toaster.js',
       'bower_components/autofill-event/src/autofill-event.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/ngstorage/ngStorage.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
