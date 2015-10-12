@@ -21,6 +21,7 @@
             <div class="space-16"></div>
             <br/>NAME: {{user.username}}
             <br/>E-MAIL: {{user.email}}
+            <br/>Gruppe: {{groups[user.groups[user.groups.length-1]].name}}
             <br/>
             <a ng-click="logout();">Logout</a>
           </div>

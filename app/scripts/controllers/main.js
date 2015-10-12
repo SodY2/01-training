@@ -7,8 +7,7 @@
  * # MainCtrl
  * Controller of the rpTrainingApp
  */
-angular.module('rpTrainingApp')
-  .controller('MainCtrl', function ($scope, $http, charachteristikaValue, Data, auth, djangoAuth) {
+app.controller('MainCtrl', function ($scope, $http, charachteristikaValue, Data, auth) {
     $scope.charAttributes = charachteristikaValue;
     $scope.selectWording = "";
 
@@ -17,9 +16,5 @@ angular.module('rpTrainingApp')
       $scope.randomPair.push($scope.charAttributes[Math.floor(Math.random() * $scope.charAttributes.length)]);
       $scope.randomPair.push($scope.charAttributes[Math.floor(Math.random() * $scope.charAttributes.length)]);
     };
-
-    //Data.get("accounts/").then(function (resp) {
-    //  console.info(resp)
-    //})
 
   });

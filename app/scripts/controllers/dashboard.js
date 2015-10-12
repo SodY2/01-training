@@ -7,9 +7,10 @@
  * # MainCtrl
  * Controller of the rpTrainingApp
  */
-app.controller('dashboardController', function ($scope, $http, charachteristikaValue, Data, auth) {
+app.controller('dashboardController', function ($scope, $http, charachteristikaValue, Data, auth, groups) {
 
   $scope.user = auth.getProfile();
+  $scope.groups = groups;
   $scope.logout = function(){
     auth.logout();
   };

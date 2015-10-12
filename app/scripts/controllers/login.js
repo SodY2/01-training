@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the rpTrainingApp
  */
-app.controller('loginController', function ($scope, $http, charachteristikaValue, Data, auth, djangoAuth, $cookies) {
+app.controller('loginController', function ($scope, $http, charachteristikaValue, Data, auth) {
 
   $scope.login = function(){
     auth.login($scope.user);
@@ -15,10 +15,10 @@ app.controller('loginController', function ($scope, $http, charachteristikaValue
 
   $scope.logout = function(){
     auth.logout();
-  }
+  };
 
   $scope.register = function(user){
     auth.register(user);
-  }
+  };
 
 });

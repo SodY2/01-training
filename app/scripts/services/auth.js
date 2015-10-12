@@ -1,11 +1,10 @@
 'use strict';
-app.service('auth', function (api, $state, Data, $cookies, $http, $q) {
+app.service('auth', function ($state, Data, $cookies, $http, $q) {
 
   var user = undefined;
 
   return {
     getCredentials: function (user) {
-      console.info(user)
       return {
         username: user.username,
         password: user.password1,
@@ -20,7 +19,6 @@ app.service('auth', function (api, $state, Data, $cookies, $http, $q) {
       }
     },
     login: function (user) {
-      console.info(user)
       Data.post("auth/login/", user).then(function (response) {
         if (response.key) {
           $cookies.token = response.key;
@@ -62,14 +60,11 @@ app.service('auth', function (api, $state, Data, $cookies, $http, $q) {
     },
 
     register: function (passedUser) {
-      // prevent login form from firing
-      // create user and immediatly login on success
       Data.post("auth/registration/", passedUser).then(this.login(this.getCredentials(passedUser))).catch(function (data) {
-        console.info(data);
       });
     },
     getProfile: function () {
-     return user;
+      return user;
     }
 
   }
