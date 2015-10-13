@@ -8,7 +8,7 @@
 
 .footer {
   padding-top: 19px;
-  border-top: 1px solid ;
+  border-top: 1px solid #b41336;
   background-color: #161a22;
 }
 .footer a:hover {
@@ -26,6 +26,9 @@ body {
   background-origin: padding-box;
   background-color: transparent;
   background-position: center;
+}
+body .container.content {
+  margin-bottom: 110px;
 }
 body .container.content .inner-content {
   padding-top: 20px;
