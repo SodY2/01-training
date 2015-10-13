@@ -70,9 +70,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       controller: 'dashboardController'
     })
     .state('/', {
-      url: '/login',
-      templateUrl: 'views/login.html',
-      controller: 'loginController'
+      url: '/dashboard',
+      templateUrl: 'views/dashboard.html',
+      controller: 'dashboardController'
     })
     .state('charachter', {
       url: "/character",

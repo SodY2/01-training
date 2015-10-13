@@ -1,5 +1,5 @@
 'use strict';
-app.service('auth', function ($state, Data, $cookies, $http, $q) {
+app.service('auth', function ($state, Data, $cookies, $http, $q, groups) {
 
   var user = undefined;
 
@@ -48,6 +48,8 @@ app.service('auth', function ($state, Data, $cookies, $http, $q) {
       }).then(function (response) {
         if (response) {
           user = response;
+          var highestID = Math.max.apply(Math, user.groups);
+          user.assignedGroup = $.grep(groups, function(e){ return e.id == highestID; });
           deferred.resolve(user)
         }
       });

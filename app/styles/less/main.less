@@ -1,6 +1,30 @@
+@import "colors";
 body {
-
   background-image: url("../images/MainBackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-color: transparent;
+  background-position: center;
+
+  .container.content{
+    .inner-content{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: @colorContentBackground;
+    }
+  }
+
+  .btn{
+    &.btn-success{
+      background-color: @colorMain;
+      border-color: @colorMain;
+
+      &:hover{
+        background-color: @colorMain;
+      }
+    }
+  }
 }

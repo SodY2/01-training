@@ -1,27 +1,29 @@
+@import "colors";
 .header {
   border: 0;
   .navbar {
-    background-color: rgb(22, 26, 34);
+    background-color: @colorMainBackground;
     min-height: 75px;
     border: 0;
+    border-bottom: 2px solid @colorMain;
 
     &.navbar-default .navbar-nav > li > a {
-      color: #fff;
+      color: @colorFont;
       text-transform: uppercase;
       line-height: 43px;
       font-family: Roboto, Helvetica, Arial, sans-serif;
       font-size: 13px;
 
       &:hover, &:active {
-        color: #b41336;
+        color: @colorMain;
       }
     }
     .navbar-brand {
       .brand-add, .brand-add:hover {
         margin-left: 10px;
         padding-left: 10px;
-        color: #b41336;
-        border-left: 3px solid #b41336;
+        color: @colorMain;
+        border-left: 3px solid @colorFont;
       }
     }
   }

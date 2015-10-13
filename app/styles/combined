@@ -1,6 +1,14 @@
-/* Custom page footer */
+.character .char-list p {
+  cursor: pointer;
+}
+.character .char-list p:hover {
+  color: #b41336;
+}
+
+
 .footer {
   padding-top: 19px;
+  border-top: 1px solid ;
   background-color: #161a22;
 }
 .footer a:hover {
@@ -13,6 +21,23 @@ body {
   background-image: url("../images/MainBackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-color: transparent;
+  background-position: center;
+}
+body .container.content .inner-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #262626;
+}
+body .btn.btn-success {
+  background-color: #b41336;
+  border-color: #b41336;
+}
+body .btn.btn-success:hover {
+  background-color: #b41336;
 }
 
 .header {
@@ -22,9 +47,10 @@ body {
   background-color: #161a22;
   min-height: 75px;
   border: 0;
+  border-bottom: 2px solid #b41336;
 }
 .header .navbar.navbar-default .navbar-nav > li > a {
-  color: #fff;
+  color: white;
   text-transform: uppercase;
   line-height: 43px;
   font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -39,5 +65,5 @@ body {
   margin-left: 10px;
   padding-left: 10px;
   color: #b41336;
-  border-left: 3px solid #b41336;
+  border-left: 3px solid white;
 }

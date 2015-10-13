@@ -36,9 +36,8 @@
       </div>
       <div class="collapse navbar-collapse" id="js-navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#/">Home</a></li>
-          <li><a ng-href="#/dashboard">Dashboard</a></li>
-          <li><a ng-href="#/character">Characteristika</a></li>
+          <li><a ui-sref="/">Home</a></li>
+          <li><a ui-sref="charachter">Characteristika</a></li>
         </ul>
       </div>
     </div>
@@ -47,11 +46,13 @@
 
 
 <div class="container content">
-  <div ui-view></div>
+  <div ui-view class="inner-content"></div>
 </div>
 
 <div class="footer navbar-fixed-bottom">
-  <div class="container">
+  <div class="container text-right">
+    <p><a href="http://www.zero-one.cc" target="_blank">
+      CI, Graphics and Logos <span class="glyphicon glyphicon-copyright-mark"></span> by Zero-One Gaming Community</a></p>
     <p><a href="https://www.youtube.com/channel/UC-Wmgrz71vJ8ZwSS9XvTpwA" target="_blank">
       <span class="glyphicon glyphicon-heart"></span> by SodY</a></p>
   </div>

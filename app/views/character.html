@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid character">
   <div class="row headliner">
     <div class="col-xs-4">
       <input type="input"  class="form-control" ng-model="selectWording" placeholder="Suche nach...">
@@ -8,10 +8,14 @@
     </div>
     <div class="col-xs-5">
       <span tooltip="{{randomPair[0].description}}"><b>{{randomPair[0].name}}</b></span> <span ng-show="randomPair.length > 0">-</span>
-      <span tooltip="{{randomPair[1].description}}"><b>{{randomPair[1].name}}</b></span>
+      <span tooltip="{{randomPair[1].description}}"><b>{{randomPair[1].name}}</b></span><br>
+      <span tooltip="{{randomPair[2].description}}"><b>{{randomPair[2].name}}</b></span> <span ng-show="randomPair.length > 0">-</span>
+      <span tooltip="{{randomPair[3].description}}"><b>{{randomPair[3].name}}</b></span><br>
+      <span tooltip="{{randomPair[4].description}}"><b>{{randomPair[4].name}}</b></span> <span ng-show="randomPair.length > 0">-</span>
+      <span tooltip="{{randomPair[5].description}}"><b>{{randomPair[5].name}}</b></span><br>
     </div>
   </div>
-  <div class="row">
+  <div class="row char-list">
     <p class="col-xs-12 col-sm-3" ng-repeat="p in charAttributes | filter: {name:selectWording}" tooltip-placement="top" tooltip="{{p.description}}">{{p.name}}</p>
   </div>
 </div>
