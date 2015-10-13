@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca51c34b-b51b-4f41-b2ba-856b84629b7e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/combined.css" afterPath="$PROJECT_DIR$/app/styles/combined.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/combined" afterPath="$PROJECT_DIR$/app/styles/combined" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/less/footer.less" afterPath="$PROJECT_DIR$/app/styles/less/footer.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/less/main.less" afterPath="$PROJECT_DIR$/app/styles/less/main.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/character.html" afterPath="$PROJECT_DIR$/app/views/character.html" />
     </list>
     <ignored path="RP_Training.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,10 +83,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.less" pinned="false" current-in-tab="true">
+      <file leaf-file-name="footer.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/styles/less/footer.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.098468274">
+            <state vertical-scroll-proportion="-1.875">
               <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
               <folding />
             </state>
@@ -106,21 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="character.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="character.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/character.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75">
-              <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="char.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/styles/less/char.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875">
-              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.6892779">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -176,7 +163,6 @@
         <option value="$PROJECT_DIR$/app/styles/less/navbar.less" />
         <option value="$PROJECT_DIR$/app/styles/less/char.less" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/character.js" />
-        <option value="$PROJECT_DIR$/app/views/character.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/dashboard.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/auth.js" />
         <option value="$PROJECT_DIR$/app/views/dashboard.html" />
@@ -184,6 +170,7 @@
         <option value="$PROJECT_DIR$/app/styles/less/colors.less" />
         <option value="$PROJECT_DIR$/app/styles/less/main.less" />
         <option value="$PROJECT_DIR$/app/styles/less/footer.less" />
+        <option value="$PROJECT_DIR$/app/views/character.html" />
       </list>
     </option>
   </component>
@@ -574,13 +561,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/char.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33482143">
-          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/angular-bootstrap/.bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -801,14 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/character.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75">
-          <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/character.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -849,10 +821,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/char.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35448578">
+          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/less/footer.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.098468274">
+        <state vertical-scroll-proportion="-1.875">
           <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/character.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6892779">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
