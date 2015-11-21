@@ -9,19 +9,19 @@
 app.value('groups', [
   {
     id : 1,
-    name : "azubi"
+    name : "Azubi"
   },
   {
     id :2,
-    name: "trainer"
+    name: "Trainer"
   },
   {
     id : 3,
-    name : "ausbilder"
+    name : "Ausbilder"
   },
   {
     id: 4,
-    name : "ausbildungs_leitung"
+    name : "Ausbildungsleitung"
   }
 
 ]);

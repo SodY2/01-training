@@ -1,3 +1,4 @@
+"use strict";
 app.factory("Data", ['$http', '$location',
   function ($http, $q, $location, toaster, $cookies) {
 

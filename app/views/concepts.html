@@ -1,0 +1,9 @@
+<div class="container-fluid concepts">
+  <div class="row">
+    <textarea rows="5" ng-model="newConcept.concept_text"></textarea>
+    <button ng-click="saveConcept()">Save</button>
+  </div>
+  <div class="row concepts-list">
+    <p class="col-xs-12 col-sm-3" ng-repeat="concept in concepts">{{concept}}</p>
+  </div>
+</div>

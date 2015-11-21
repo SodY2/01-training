@@ -48,13 +48,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('login', {
       url: "/login",
-      templateUrl: 'views/login.html',
+      //templateUrl: 'views/login.html',
+      templateUrl: 'views/wartung.html',
       controller: 'loginController',
       isPublic: true
     })
     .state('logout', {
       url: "/logout",
-      templateUrl: 'views/login.html',
+      //templateUrl: 'views/login.html',
+      templateUrl: 'views/wartung.html',
       controller: 'loginController',
       isPublic: true
     })
@@ -66,7 +68,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('dashboard', {
       url: '/dashboard',
-      templateUrl: 'views/dashboard.html',
+      //templateUrl: 'views/dashboard.html',
+      templateUrl: 'views/wartung.html',
       controller: 'dashboardController'
     })
     .state('/', {
@@ -77,7 +80,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('charachter', {
       url: "/character",
       templateUrl: 'views/character.html',
-      controller: 'CharacterController'
+      controller: 'CharacterController',
+      isPublic: true
+    })
+    .state('concepts', {
+      url: "/concepts",
+      //templateUrl: 'views/concepts.html',
+      templateUrl: 'views/wartung.html',
+      controller: 'ConceptsController'
     });
 
 });
